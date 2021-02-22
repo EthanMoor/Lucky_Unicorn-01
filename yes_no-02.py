@@ -9,17 +9,15 @@ while show_instructions.lower() != "xxx":
     # If the answer is invalid, print an error.
 
     # If they say yes, output 'program continues'
-    if show_instructions == "yes":
+    if show_instructions == "yes" or show_instructions == "y":
+        show_instructions = "yes"
         print("program continues")
 
-    elif show_instructions == "y":
-        print("program continues")
-
-    elif show_instructions == "no":
+    elif show_instructions == "no" or show_instructions == "n":
+        show_instructions = "no"
         print("display instructions")
 
-    elif show_instructions == "n":
-        print("display instructions")
+
 
     # If they say no, output 'display instructions'
     else:
