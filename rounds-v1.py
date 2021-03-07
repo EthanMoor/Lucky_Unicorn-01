@@ -11,7 +11,7 @@ while play_again == "":
 
     # Print round number
     print()
-    print("*** Round#{} ***".format(rounds_played))
+    print("*** Round #{} ***".format(rounds_played))
     balance -= 1
     print("Balance: ", balance)
     print()
