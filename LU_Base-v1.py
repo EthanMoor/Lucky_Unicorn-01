@@ -1,7 +1,10 @@
 import random
 
 # Functions go here...
+
+
 def yes_no(question):
+    statement_generator("Welcome to the Lucky Unicorn Game", "*")
     valid = False
     while not valid:
         response = input(question).lower()
@@ -19,9 +22,10 @@ def yes_no(question):
 
 
 def instructions():
-    print("--- How to Play ---")
+    statement_generator("How To Play", "*")
     print()
-    print("The rules of the game go here")
+    print("Choose a starting amount (minimum $1 and maximum $10\n"
+          "Then Press <Enter> to play.")
     print()
     return ""
 
@@ -44,7 +48,22 @@ def num_check(question, low, high):
 
         except ValueError:
             print(error)
-# Main Routine goes here...
+
+
+def statement_generator(statement, decoration):
+
+    sides = decoration * 3
+
+    statement = "{} {} {}".format(sides, statement, sides)
+    top_bottom = decoration * len(statement)
+
+    print(top_bottom)
+    print(statement)
+    print(top_bottom)
+
+    return ""
+
+
 
 
 played_before = yes_no("Have you played this game before?\n")
@@ -57,7 +76,7 @@ how_much = num_check("How much would you "
                      "like to play with? \n"
                      "$", 0, 10)
 
-balance = 5
+balance = how_much
 
 rounds_played = 0
 
@@ -77,6 +96,7 @@ while play_again == "":
     # If the random # is between 1 and 6 User gets a Unicorn (add $4 to balance)
     if 1 <= chosen_num <= 5:
         chosen = "unicorn"
+
         balance += 4
 
     # If the random # is between 6 and 36 #  User gets a Donkey (Subtract $1 from balance)
