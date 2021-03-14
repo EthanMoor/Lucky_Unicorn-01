@@ -1,5 +1,6 @@
 import random
 
+
 # Functions go here...
 
 
@@ -10,12 +11,12 @@ def yes_no(question):
         response = input(question).lower()
 
         if response == "yes" or response == "y":
-                response = "yes"
-                return response
+            response = "yes"
+            return response
 
         elif response == "no" or response == "n":
-                response = "no"
-                return response
+            response = "no"
+            return response
 
         else:
             print("Please answer yes / no")
@@ -24,14 +25,14 @@ def yes_no(question):
 def instructions():
     statement_generator("How To Play", "*")
     print()
-    print("Choose a starting amount (minimum $1 and maximum $10\n"
-          "Then Press <Enter> to play. You will get either a Unicorn, Donkey, Horse or a Zebra\n"
-          "It will cost $1 per round. Depending on your prize you could win some of your money back\n"
-          "Here's the payout amounts:\n"
-          "Unicorn = $5 (Balance increases by $4)\n"
-          "Horse = -$0.50 (Balance decreases by $0.50)\n"
-          "Zebra = -$0.50 (Balance decreases by $0.50\n"
-          "Donkey = -$1.00 (Balance decreases by $1.00)")
+    print('Choose a starting amount (minimum $1 and maximum $10)\n'
+          'Then Press <Enter> to play. You will get either a Unicorn, Donkey, Horse or a Zebra\n'
+          'It will cost $1 per round. Depending on your prize you could win some of your money back\n'
+          'Here\'s the payout amounts:\n'
+          'Unicorn = $5 (Balance increases by $4)\n'
+          'Horse = -$0.50 (Balance decreases by $0.50)\n'
+          'Zebra = -$0.50 (Balance decreases by $0.50)\n'
+          'Donkey = -$1.00 (Balance decreases by $1.00)')
     print()
     return ""
 
@@ -57,19 +58,17 @@ def num_check(question, low, high):
 
 
 def statement_generator(statement, decoration):
-
     sides = decoration * 3
 
-    statement = "{} {} {}".format(sides, statement, sides)
-    top_bottom = decoration * len(statement)
+
+    new_statement = "{} {} {}".format(sides, statement, sides)
+    top_bottom = decoration * len(new_statement)
 
     print(top_bottom)
-    print(statement)
+    print(new_statement)
     print(top_bottom)
 
-    return ""
-
-
+    return statement
 
 
 played_before = yes_no("Have you played this game before?\n")
@@ -120,16 +119,16 @@ while play_again == "":
             chosen = statement_generator("You got a Zebra", "Z")
         balance -= 0.5
 
-    print("You got a {}. Your balance is "
+    print("{}. Your balance is "
           "${:.2f}".format(chosen, balance))
 
     if balance < 1:
         play_again = "xxx"
         print("sorry you have run out of money")
     else:
-        play_again = input("Press Enter to play again "
-                       "or 'xxx to quit\n")
+        play_again = input("Press <Enter> to play again "
+                           "or 'xxx' to quit\n")
 
 print()
 statement_generator("Results", "=")
-print("Final Balance $",balance)
+print("Final Balance $", balance)
